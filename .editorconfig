@@ -1,0 +1,60 @@
+# HW Dollar4 mini — 代码规范（VB.NET / WinForms）
+# 放进仓库根目录，VS 会自动读取；VS 2019 及以上支持这里的 dotnet_* 规则。
+
+root = true
+
+[*]
+charset = utf-8-bom
+end_of_line = crlf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.vb]
+# ---------- 命名规范 ----------
+# 私有字段：_camelCase（例：_saveBlockReason）
+dotnet_naming_rule.private_fields_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_underscore.style = underscore_camel
+dotnet_naming_rule.private_fields_underscore.severity = suggestion
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_style.underscore_camel.capitalization = camel_case
+dotnet_naming_style.underscore_camel.required_prefix = _
+
+# 常量：PascalCase
+dotnet_naming_rule.constants_pascal.symbols = constants
+dotnet_naming_rule.constants_pascal.style = pascal
+dotnet_naming_rule.constants_pascal.severity = suggestion
+
+dotnet_naming_symbols.constants.applicable_kinds = field
+dotnet_naming_symbols.constants.required_modifiers = const
+
+dotnet_naming_style.pascal.capitalization = pascal_case
+
+# 局部变量 / 参数：camelCase
+dotnet_naming_rule.locals_camel.symbols = locals_and_params
+dotnet_naming_rule.locals_camel.style = camel
+dotnet_naming_rule.locals_camel.severity = suggestion
+
+dotnet_naming_symbols.locals_and_params.applicable_kinds = local, parameter
+
+dotnet_naming_style.camel.capitalization = camel_case
+
+# ---------- 常见坏味道：先挂警告，不阻断编译 ----------
+# CA1031 捕获通用异常后什么也不做（本项目历史代码里较多）
+dotnet_diagnostic.CA1031.severity = warning
+# CA2200 重新抛出时丢了堆栈
+dotnet_diagnostic.CA2200.severity = warning
+# CA2201 抛出过于宽泛的异常类型
+dotnet_diagnostic.CA2201.severity = warning
+# CA1801 未使用的参数
+dotnet_diagnostic.CA1801.severity = suggestion
+
+[*.vbproj]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false

@@ -1,0 +1,21 @@
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userprefs
+
+# 构建产物
+bin/
+obj/
+objtestout*/
+
+# 临时脚本
+__pycache__/
+*.log
+
+# 界面截图脚本
+shot*.py
+
+# 开发截图
+*.png
